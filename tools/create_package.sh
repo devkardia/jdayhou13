@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #extension name mainly for extension's xml file
-APP="articlesplacedanywhere"
+APP="mod_articlesplacedanywhere"
 
 #the name of the extensions' zip file without .zip
 ZIP_NAME="mod_articlesplacedanywhere"
@@ -89,6 +89,9 @@ case $1 in
 				#pull those commits and put them into the log
 				mv $FULLPATH/CHANGELOG $FULLPATH/tools/CHANGELOG.previous
 cat > $FULLPATH/CHANGELOG.tmp <<EOF
+
+
+
 `git log --pretty=format:"%s" --since="$LASTRELEASE"`
 EOF
 				#clean up the log a bit
@@ -105,6 +108,7 @@ EOF
 
 				*)
 					echo "Should this be packaged for developer or release?"
+					rm -r $TMPPATH
 					exit
 					;;
 		esac
