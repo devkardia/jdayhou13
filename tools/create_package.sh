@@ -118,5 +118,8 @@ EOF
 		php $RMSCRIPT $FULLPATH/tools/config.json
 		wait
 		;;
+    *)
+        echo "packit or releaseit?"
+        ;;
 esac
 exit 0
