@@ -10,29 +10,28 @@ ZIP_NAME="mod_articlesplacedanywhere"
 APP_PATH="apa"
 
 #full path to the extension folder
-FULLPATH="/Path/to/$APP_PATH"
+FULLPATH="/Users/alan/jdayhou13/$APP_PATH"
 
 #location of Akeeba Release Maker
-RMSCRIPT="/Path/to/rm/index.php"
-
+RMSCRIPT="/Users/alan/jdayhou13/rm/index.php"
 
 echo $FULLPATH
 
 #cd into extension's folder
 cd $FULLPATH
 
-#make a temporary path for packaging
-TMPPATH="/tmp/$APP"
-mkdir $TMPPATH
-
-#copy all applicable files/folders to the temp folder for packaging
-rsync -rv --exclude=".*/" --exclude=".DS_Store" --exclude="*.zip" --exclude="docs" --exclude="package" --exclude="tools" --exclude="*.md" $FULLPATH/* $TMPPATH/
-
-#take note of the current git revision
-VERSION=`git rev-list --all | wc -l | tr -d ' '`
-
 case $1 in
 	packit)
+        #make a temporary path for packaging
+        TMPPATH="/tmp/$APP"
+        mkdir $TMPPATH
+
+        #copy all applicable files/folders to the temp folder for packaging
+        rsync -rv --exclude=".*/" --exclude=".DS_Store" --exclude="*.zip" --exclude="docs" --exclude="package" --exclude="tools" --exclude="*.md" $FULLPATH/* $TMPPATH/
+
+        #take note of the current git revision
+        VERSION=`git rev-list --all | wc -l | tr -d ' '`
+
 		case $2 in
 			#creates a new package of current git revision; does not get uploaded to site
 			developer)
