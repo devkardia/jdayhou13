@@ -50,7 +50,7 @@ case $1 in
 					VERSION="WORKING"
 				fi
 
-				VERSIONPATH="developer"
+				VERSIONPATH="packages/developer"
 				VERSIONNAME="${ZIP_NAME}_r$VERSION"
 
 				;;
@@ -73,11 +73,11 @@ case $1 in
 				sed "s/\"common\.version\": \".*\",/\"common\.version\": \"$3\",/g" $FULLPATH/tools/config.tmp > $FULLPATH/tools/config.json
 				rm $FULLPATH/tools/config.tmp
 
-				VERSIONPATH="release"
+				VERSIONPATH="packages/release"
 				VERSIONNAME="${ZIP_NAME}_v$3"
 
 				#delete any current release zips so that Akeeba Release Maker doesn't reprocess them
-				rm $FULLPATH/tools/release/*.zip
+				rm $FULLPATH/tools/packages/release/*.zip
 
 				#create changelog based on git revisions
 
