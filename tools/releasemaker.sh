@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#Note: script uses commands git, php, and 7z which may need to be installed
+
 #extension name mainly for extension's xml file
 APP="mod_articlesplacedanywhere"
 
